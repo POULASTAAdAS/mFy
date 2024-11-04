@@ -4,6 +4,7 @@ import 'package:mfy/common/widgets/button/basic_app_button.dart';
 import 'package:mfy/core/configs/assets/app_images.dart';
 import 'package:mfy/core/configs/assets/app_vectors.dart';
 import 'package:mfy/core/configs/theme/app_colors.dart';
+import 'package:mfy/presentation/choose_mode/pages/chose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -23,6 +24,15 @@ class GetStartedPage extends StatelessWidget {
                 image: AssetImage(AppImages.introBG),
                 fit: BoxFit.fill,
               ),
+            ),
+          ),
+          Container(
+            color: Colors.black.withOpacity(.15),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 40,
+              horizontal: 40,
             ),
             child: Column(
               children: [
@@ -57,15 +67,20 @@ class GetStartedPage extends StatelessWidget {
                   height: 24,
                 ),
                 BasicAppButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const ChoseModePage(),
+                      ),
+                    );
+                  },
                   title: "Get Started",
                 )
               ],
             ),
           ),
-          Container(
-            color: Colors.black.withOpacity(.15),
-          )
         ],
       ),
     );
